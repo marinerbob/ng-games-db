@@ -1,0 +1,13 @@
+<div class="search-box">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="search-box__form">
+        <span class="search-box__logo" routerLink="/">NgGDB</span>
+        <input 
+            type="text" 
+            class="search-box__input"
+            ngModel
+            name="search"
+            placeholder="Search games"
+        />
+        <button type="submit" class="search-box__submit">Search</button>
+    </form>
+</div>
