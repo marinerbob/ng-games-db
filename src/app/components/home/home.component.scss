@@ -74,6 +74,29 @@
       margin: 0 auto;
       height: inherit;
     }
+
+    &__description {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 157px;
+    }
+
+    &__name {
+      color: #fff;
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 20px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__platforms {
+      width: 20px;
+      margin-right: 10px;
+    }
   }
 
   
