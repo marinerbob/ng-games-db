@@ -32,4 +32,48 @@
     }
   }
 
+  .games-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+
+    &__item {
+      width: 280px;
+      margin: 10px;
+      height: 330px;
+      background-color: #202020;
+    }
+  }
+
+  .game-card {
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: .3s;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &__thumb-container {
+      background-color: #000;
+      position: relative;
+      height: 172px;
+      color:#fff;
+      text-align: center;
+    }
+
+    &__thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0 auto;
+      height: inherit;
+    }
+  }
+
   
