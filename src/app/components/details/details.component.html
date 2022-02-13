@@ -1,4 +1,4 @@
-<div class="details">
+<div class="details" *ngIf="game">
     <div class="details__banner-wrapper">
         <img class="details__banner-img"
         src="{{ game.background_image }}"
@@ -31,7 +31,7 @@
                     </a>
                 </div>
             </div>
-
+            <app-game-tabs [game]="game"></app-game-tabs>
         </div>
     </div>
 </div>
