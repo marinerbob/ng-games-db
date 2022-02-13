@@ -94,6 +94,10 @@
     }
 
     &__platforms {
+      display: flex;
+    }
+
+    &__platform {
       width: 20px;
       margin-right: 10px;
     }

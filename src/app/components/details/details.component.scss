@@ -1,0 +1,80 @@
+.details {
+    &__banner-wrapper {
+        height: 442px;
+        overflow: hidden;
+    }
+
+    &__banner-img {
+        width: 100%;
+        filter: blur(5px);
+    }
+
+    &__content {
+        text-align: center;
+        position: relative;
+        top: -200px;
+    }
+
+    ::ng-deep mwl-gauge {
+        width: 150px;
+        height: 150px;
+        display: block;
+        padding: 10px;
+
+        .dial {
+            stroke-width: 10;
+        }
+
+        .value {
+            stroke-dasharray: none;
+            stroke-width: 13;
+        }
+
+        .value-text {
+            fill: #fff;
+            font-weight: 700;
+            font-size: 24px;
+        }
+    }
+}
+
+.description {
+    &__wrapper {
+
+    }
+
+    &__header {
+
+    }
+
+    &__title {
+        font-size: 70px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 70px;
+        white-space: nowrap;
+    }
+
+    &__release-date {
+        color: #fff;
+        font-weight: 700;
+    }
+
+    &__genres {
+        color: #fff;
+        font-weight: 700;
+    }   
+
+    &__gauge {
+        position: absolute;
+        top: 50px;
+        right: 0;
+    }
+
+    &__gauge-label {
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        bottom: 60px;
+    }
+}

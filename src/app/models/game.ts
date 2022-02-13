@@ -1,4 +1,5 @@
 export type Game = {
+    id: number;
     name: string;
     background_image: string;
     released: string;
@@ -21,6 +22,7 @@ type Genre = {
 type ParentPlatform = {
     platform: {
         name: string;
+        slug: string;
     }
 }
 
