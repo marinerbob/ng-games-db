@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse } from 'src/app/models/apiResponse';
-import { Game } from 'src/app/models/game';
-import { HttpService } from 'src/app/services/http.service';
+
+import { GameService, Game, APIResponse } from 'src/app/core';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private gameSub: Subscription;
 
   constructor(
-    private httpService: HttpService,
+    private gameService: GameService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
@@ -47,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchGames(sort: string, search?: string): void {
-    this.gameSub = this.httpService
+    this.gameSub = this.gameService
         .getGameList(sort, search)
         .subscribe((gameList: APIResponse<Game>) => {
           this.games = gameList.results as Game[];

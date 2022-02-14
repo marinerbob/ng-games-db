@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse } from 'src/app/models/apiResponse';
-import { Game } from 'src/app/models/game';
-import { HttpService } from 'src/app/services/http.service';
+
+import { GameService, Game } from 'src/app/core';
 
 @Component({
   selector: 'app-details',
@@ -19,7 +18,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpService: HttpService
+    private gameService: GameService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +36,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   getGameDetails(id: string): void {
-    this.gameSub = this.httpService
+    this.gameSub = this.gameService
     .getGameDetails(id)
     .subscribe((res: Game) => {
       this.game = res;

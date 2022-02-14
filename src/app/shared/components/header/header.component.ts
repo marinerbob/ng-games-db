@@ -4,11 +4,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class SearchBarComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   public search = new FormControl('');
 
   private routeSub: Subscription;

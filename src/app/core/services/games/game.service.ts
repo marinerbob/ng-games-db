@@ -4,13 +4,10 @@ import { forkJoin, map, Observable } from 'rxjs';
 
 import { environment as env } from 'src/environments/environment';
  
-import { APIResponse } from 'src/app/models/apiResponse';
-import { Game } from 'src/app/models/game';
+import { Game, APIResponse } from 'src/app/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class HttpService {
+@Injectable()
+export class GameService {
 
   constructor(private http: HttpClient) { }
 
