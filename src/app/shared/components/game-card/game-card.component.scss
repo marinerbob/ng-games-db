@@ -1,3 +1,5 @@
+@import 'src/app/utils/mixins.scss';
+
 .game-card {
     position: relative;
     overflow: hidden;
@@ -5,17 +7,7 @@
     display: flex;
     align-items: flex-end;
 
-    &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(#000, .6);
-    }
+    @include make-banner('banner', #000, 0.7);
 
     &__meta-rating {
         position: absolute;
@@ -28,18 +20,6 @@
         align-items: center;
         font-size: large;
         font-weight: 700;
-    }
-
-    &__banner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -2;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position-x: center;
     }
 
     &__platforms {

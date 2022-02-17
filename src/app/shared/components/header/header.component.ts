@@ -4,38 +4,37 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  readonly searchForm = new FormGroup({
-    search: new FormControl('')
-  });
+    readonly searchForm = new FormGroup({
+        search: new FormControl(''),
+    });
 
-  private routeSub: Subscription;
+    private routeSub: Subscription;
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-    ) { }
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.routeSub = this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (params['search']) {
-        this.searchForm.setValue({ search: params['search'] });
-      }
-    })
-  }
+    ngOnInit(): void {
+        this.routeSub = this.activatedRoute.queryParams.subscribe((params: Params) => {
+            if (params['search']) {
+                this.searchForm.setValue({ search: params['search'] });
+            }
+        });
+    }
 
-  ngOnDestroy(): void {
-      this.routeSub && this.routeSub.unsubscribe();
-  }
+    ngOnDestroy(): void {
+        this.routeSub && this.routeSub.unsubscribe();
+    }
 
-  onSubmit() {
-    let searchTerm = this.searchForm.controls['search'].value;
-    this.router.navigate(['home'], { queryParams: { search: searchTerm }, queryParamsHandling: 'merge' })
-  }
-
+    onSubmit() {
+        let searchTerm = this.searchForm.controls['search'].value;
+        this.router.navigate(['home'], {
+            queryParams: { search: searchTerm },
+            queryParamsHandling: 'merge',
+        });
+    }
 }

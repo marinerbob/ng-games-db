@@ -7,17 +7,8 @@ import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 import { SharedModule } from '../shared';
 import { GaugeModule } from 'angular-gauge';
 
-
 @NgModule({
-  declarations: [
-    DetailsComponent,
-    GameTabsComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    GaugeModule.forRoot(),
-    DetailsRoutingModule
-  ]
+    declarations: [DetailsComponent, GameTabsComponent],
+    imports: [CommonModule, SharedModule, GaugeModule.forRoot(), DetailsRoutingModule],
 })
-export class DetailsModule { }
+export class DetailsModule {}

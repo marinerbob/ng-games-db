@@ -17,31 +17,31 @@ export type Game = {
 
 type Genre = {
     name: string;
-}
+};
 
 type ParentPlatform = {
     platform: {
         name: string;
         slug: string;
-    }
-}
+    };
+};
 
 type Publishers = {
     name: string;
-}
+};
 
 type Rating = {
     id: number;
     count: number;
     title: string;
-}
+};
 
 type Screenshot = {
     image: string;
-}
+};
 
 type Trailer = {
     data: {
         max: string;
-    }
-}
+    };
+};

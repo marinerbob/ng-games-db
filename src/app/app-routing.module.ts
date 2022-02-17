@@ -5,32 +5,32 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {
-    path: 'details',
-    loadChildren: () => import('./details/details.module').then(m => m.DetailsModule)
-
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
-
+    {
+        path: 'details',
+        loadChildren: () => import('./details/details.module').then((m) => m.DetailsModule),
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+    },
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules,
-    relativeLinkResolution: 'legacy'
-  })],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {
+            preloadingStrategy: PreloadAllModules,
+            relativeLinkResolution: 'legacy',
+        }),
+    ],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

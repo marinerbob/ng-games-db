@@ -118,9 +118,21 @@
             "scripts": [],
             "codeCoverage": true
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "ng-game-db"
+  "defaultProject": "ng-game-db",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
