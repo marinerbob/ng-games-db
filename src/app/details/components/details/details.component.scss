@@ -1,80 +1,56 @@
-.details {
-    &__banner-wrapper {
-        height: 442px;
-        overflow: hidden;
-    }
+.details-wrapper {
+    width: 100%;
+    margin-top: 5rem;
+    height: calc(100vh - 5rem);
+    position: relative;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
 
-    &__banner-img {
-        width: 100%;
-        filter: blur(5px);
-    }
-
-    &__content {
-        text-align: center;
-        position: relative;
-        top: -200px;
-    }
-
-    ::ng-deep mwl-gauge {
-        width: 150px;
-        height: 150px;
+    &::after {
+        content: '';
         display: block;
-        padding: 10px;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000, .8);
+    }
 
-        .dial {
-            stroke-width: 10;
-        }
-
-        .value {
-            stroke-dasharray: none;
-            stroke-width: 13;
-        }
-
-        .value-text {
-            fill: #fff;
-            font-weight: 700;
-            font-size: 24px;
-        }
+    &__banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 
+.details {
+    &__desc {
+        padding: 5%;
+        min-width: 30%;
+    }
+
+}
+
 .description {
-    &__wrapper {
+    &__released {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__metacritic {
+        padding: 15px;
+        text-decoration: none;
 
     }
 
-    &__header {
-
-    }
-
-    &__title {
-        font-size: 70px;
-        color: #fff;
-        font-weight: 700;
-        line-height: 70px;
-        white-space: nowrap;
-    }
-
-    &__release-date {
-        color: #fff;
-        font-weight: 700;
-    }
-
-    &__genres {
-        color: #fff;
-        font-weight: 700;
-    }   
-
-    &__gauge {
-        position: absolute;
-        top: 50px;
-        right: 0;
-    }
-
-    &__gauge-label {
-        font-size: 20px;
-        color: #fff;
-        position: relative;
-        bottom: 60px;
-    }
 }

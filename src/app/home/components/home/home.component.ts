@@ -4,12 +4,24 @@ import { Subscription } from 'rxjs';
 
 import { GameService, Game, APIResponse } from 'src/app/core';
 
+const SORT_TYPES: { [label: string]: string } = {
+  'Name': 'name',
+  'Released': '-released',
+  'Added': '-added',
+  'Created': '-created',
+  'Updated': '-updated',
+  'Rating': '-rating',
+  'Metacritic': 'metacritic'
+};
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  readonly selectSortItems = Object.keys(SORT_TYPES);
+  
   public sort: string = '';
   private search: string = '';
 
@@ -42,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onSortingChange(sort: string): void {
-    this.searchGames(sort, this.search);
+    this.searchGames(SORT_TYPES[sort], this.search);
   }
 
   searchGames(sort: string, search?: string): void {

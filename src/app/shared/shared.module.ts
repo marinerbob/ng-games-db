@@ -3,37 +3,54 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { TuiRootModule, TuiTextfieldControllerModule, TuiButtonModule, TuiDataListModule } from '@taiga-ui/core';
+import { TuiInputModule, TuiIslandModule, TuiSelectModule, TuiDataListWrapperModule } from '@taiga-ui/kit';
+
+import { Title } from '@angular/platform-browser';
 
 import { HeaderComponent } from './components/header/header.component';
+import { BgImageDirective } from './directives/bg-image.directive';
+import { MetacriticScoreDirective } from './directives/metacritic-score.directive';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    BgImageDirective,
+    MetacriticScoreDirective
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
+    TuiRootModule,
+    TuiIslandModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    TuiSelectModule,
+    TuiButtonModule,
+    TuiTextfieldControllerModule,
+    TuiInputModule
+  ],
+  providers: [
+    Title
   ],
   exports: [
     HeaderComponent,
+    BgImageDirective,
+    MetacriticScoreDirective,
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
+    TuiRootModule,
+    TuiIslandModule,
+    TuiButtonModule,
+    TuiDataListModule,
+    TuiDataListWrapperModule,
+    TuiSelectModule,
+    TuiTextfieldControllerModule,
+    TuiInputModule
   ]
 })
 export class SharedModule { }

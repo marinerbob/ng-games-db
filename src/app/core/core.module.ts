@@ -5,9 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpParamsInterceptor, HttpErrorsInterceptor } from './interceptors';
 
-import { GameService } from './services';
-
-
 @NgModule({
   imports: [
     CommonModule,
@@ -24,8 +21,10 @@ import { GameService } from './services';
       useClass: HttpErrorsInterceptor,
       multi: true
     },
-    GameService
   ],
   declarations: [],
+  exports: [
+    HttpClientModule
+  ]
 })
 export class CoreModule { }

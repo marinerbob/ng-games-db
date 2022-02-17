@@ -6,7 +6,9 @@ import { environment as env } from 'src/environments/environment';
  
 import { Game, APIResponse } from 'src/app/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GameService {
 
   constructor(private http: HttpClient) { }
@@ -32,8 +34,8 @@ export class GameService {
     id: string
   ): Observable<Game> {
     const gameInfoRequest = this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games/${id}`);
-    const gameScreenshotsRequest = this.http.get(`${env.BASE_URL}/games/${id}/screenshots`);
-    const gameTrailersRequest = this.http.get(`${env.BASE_URL}/games/${id}/movies`);
+    const gameScreenshotsRequest = this.http.get<APIResponse>(`${env.BASE_URL}/games/${id}/screenshots`);
+    const gameTrailersRequest = this.http.get<APIResponse>(`${env.BASE_URL}/games/${id}/movies`);
 
     return forkJoin({
       gameInfoRequest,
@@ -43,8 +45,8 @@ export class GameService {
       map((resp: any) => {
         return {
           ...resp['gameInfoRequest'],
-          screenshots: [ ...resp['gameScreenshotsRequest']?.results ],
-          trailers: [ ...resp['gameTrailersRequest']?.results ]
+          screenshots: [ ...resp['gameScreenshotsRequest'].results ],
+          trailers: [ ...resp['gameTrailersRequest'].results ]
         } as Game;
       })
     )

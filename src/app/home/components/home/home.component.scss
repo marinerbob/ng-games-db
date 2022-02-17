@@ -1,106 +1,69 @@
-.filters-box {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding-left: 20px;
+.home-container {
+    margin-top: 5rem;
+    &__filters-row {
+        padding: 1rem 0;
+    }
 }
 
-::ng-deep {
-    .mat-form-field-infix {
-      background-color: #3f51b5;
-    }
-  
-    .mat-select-value,
-    .mat-select-arrow,
-    .mat-form-field-hide-placeholder .mat-select-placeholder,
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      color: #fff !important;
-      opacity: 1;
-    }
-  
-    .mat-form-field-infix {
-      border-color: #fff !important;
-      border-top: none;
-      padding-left: 5px !important;
-    }
-  
-    .mat-form-field-appearance-legacy .mat-form-field-label {
-      padding-left: 5px;
-    }
-  
-    .mat-form-field-appearance-legacy .mat-form-field-underline {
-      background-color: #fff !important;
-    }
-  }
-
-  .games-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 20px auto;
-
+.cards-row {
     &__item {
-      width: 280px;
-      margin: 10px;
-      height: 330px;
-      background-color: #202020;
+        margin-bottom: 1rem;
+        height: 400px;
     }
-  }
+}
 
-  .game-card {
+.game-card {
+    position: relative;
     overflow: hidden;
-    border-radius: 5px;
-    cursor: pointer;
-    transition-duration: .3s;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
 
-    &:hover {
-      transform: translateY(-3px);
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000, .6);
     }
 
-    &__thumb-container {
-      background-color: #000;
-      position: relative;
-      height: 172px;
-      color:#fff;
-      text-align: center;
+    &__meta-rating {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: large;
+        font-weight: 700;
     }
 
-    &__thumb {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: 0 auto;
-      height: inherit;
-    }
-
-    &__description {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      height: 157px;
-    }
-
-    &__name {
-      color: #fff;
-      font-weight: 700;
-      font-size: 22px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
+    &__banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
     }
 
     &__platforms {
-      display: flex;
+        display: flex;
     }
 
     &__platform {
-      width: 20px;
-      margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
     }
-  }
+}
 
-  

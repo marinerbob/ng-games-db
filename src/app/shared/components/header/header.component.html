@@ -1,13 +1,9 @@
-<div class="search-box">
-    <form (ngSubmit)="onSubmit()" novalidate class="search-box__form">
-        <span class="search-box__logo" routerLink="/">NgGDB</span>
-        <input 
-            type="text" 
-            class="search-box__input"
-            [formControl]="search"
-            name="search"
-            placeholder="Search games"
-        />
-        <button type="submit" class="search-box__submit">Search</button>
+<header class="site-header">
+    <a class="site-header__logo tui-text_h4" routerLink="/">Games DB</a>
+    <form (keydown.enter)="onSubmit()" class="search-form"  [formGroup]="searchForm">
+        <tui-input class="search-form__input" formControlName="search" [tuiTextfieldLabelOutside]="true" icon='tuiIconSearch' iconAlign="right">
+            Search 500 000+ games
+            <input tuiTextfield type="text" />
+        </tui-input>
     </form>
-</div>
+</header>
