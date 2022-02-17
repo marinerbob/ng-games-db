@@ -71,4 +71,3 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['details', id]);
     }
 }
-
