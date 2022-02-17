@@ -1,0 +1,19 @@
+<div class="home-container tui-container tui-container_adaptive">
+    <div class="tui-row tui-row_adaptive home-container__filters-row">
+        <div class="tui-col_xs-12 tui-col_md-6 tui-col_lg-4">
+            <tui-select [(ngModel)]="sort" (ngModelChange)="onSortingChange(sort)">
+                Choose sort order
+                <input tuiTextfield />
+                <tui-data-list-wrapper *tuiDataList [items]="selectSortItems">
+                </tui-data-list-wrapper>
+            </tui-select>
+        </div>
+    </div>
+    <div class="tui-row tui-row_adaptive cards-row">
+        <ng-container *ngFor="let game of games">
+            <div class="tui-col_xs-12 tui-col_md-6 tui-col_lg-4">
+                <app-game-card (onClickEvent)="openGameDetails($event)" [game]="game" additionalClasses="cards-row__item"></app-game-card>
+            </div>
+        </ng-container>
+    </div>
+</div>

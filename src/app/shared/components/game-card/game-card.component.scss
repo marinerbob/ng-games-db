@@ -1,17 +1,3 @@
-.home-container {
-    margin-top: 5rem;
-    &__filters-row {
-        padding: 1rem 0;
-    }
-}
-
-.cards-row {
-    &__item {
-        margin-bottom: 1rem;
-        height: 400px;
-    }
-}
-
 .game-card {
     position: relative;
     overflow: hidden;
@@ -66,4 +52,3 @@
         margin-right: 5px;
     }
 }
-

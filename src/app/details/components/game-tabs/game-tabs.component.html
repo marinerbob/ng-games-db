@@ -1,53 +1,67 @@
-<!-- <div class="game-tabs" *ngIf="game">
-    <mat-tab-group mat-align-tabs="start" backgroundColor="primary">
-        <mat-tab label="About">
-            <p *ngIf="game.parent_platforms?.length" class="game-tabs-par">
+<div class="tabs">
+    <tui-tabs class="tabs__links" [(activeItemIndex)]="activeItemIndex">
+        <button (click)="onTabClick(tab)" tuiTab *ngFor="let tab of gameTabs">{{ tab }}</button>
+    </tui-tabs>
+    <div class=" tabs__container tui-container tui-container_adaptive">
+        <div class="tabs__item" *ngIf="getTabIsOpened('About')">
+            <p *ngIf="game.parent_platforms">
                 Platforms:
                 <span *ngFor="let game of game.parent_platforms; let last = last">
                     {{ game.platform.name }}<span *ngIf="!last">, </span>
                 </span>
             </p>
-            <p *ngIf="game.publishers?.length" class="game-tabs-par">
+            <p *ngIf="game.publishers?.length">
                 Publishers:
                 <span *ngFor="let publisher of game.publishers; let last = last;">
                     {{ publisher.name }}<span *ngIf="!last">, </span>
                 </span>
             </p>
-            <p *ngIf="game.website" class="game-tabs-par">
+            <p *ngIf="game.website">
                 Website:
                 <a class="game-tabs-link" href="{{ game.website }}" target="_blank">{{ game.website }}</a>
             </p>
             <div class="game-description" [innerHTML]="game.description">
             </div>
-            <p class="game-tabs-votes">
-                <ng-container *ngFor="let rating of game.ratings">
-                    <span *ngIf="rating.title === 'exceptional'">
-                        <mat-icon class="game-votes-up">thumb_up</mat-icon>
-                        <span class="game-votes-count">{{ rating.count || 0 }}</span>
-                    </span>
-                    <span *ngIf="rating.title === 'skip'">
-                        <mat-icon class="game-votes-down ">thumb_down</mat-icon>
-                        <span class="game-votes-count">{{ rating.count || 0 }}</span>
-                    </span>
-                </ng-container>
-            </p>
-        </mat-tab>
-        <mat-tab label="Screenshots" *ngIf="game.screenshots?.length">
-            <img
-             *ngFor="let screenshot of game.screenshots"
-             class="game-screenshot"
-             src="{{ screenshot.image }}"
-             alt="screenshot" />
-        </mat-tab>
-        <mat-tab label="Trailers" *ngIf="game.trailers?.length">
-            <video
-                class="game-trailer"
-                controls
-                *ngFor="let trailer of game.trailers"
-            >
-            <source src="{{ trailer.data?.max }}" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-        </mat-tab>
-    </mat-tab-group>
-</div> -->
+        </div>
+        <div class="tabs__item" *ngIf="getTabIsOpened('Screenshots')">
+            <div class="empty-placeholder" *ngIf="!game.screenshots?.length">
+                No data available
+            </div>
+            <div *ngIf="game.screenshots?.length" tuiCarouselButtons class="wrapper">
+                <button tuiIconButton icon="tuiIconChevronLeftLarge" title="Previous"
+                    (click)="carousel.prev()"></button>
+                <tui-carousel #carousel class="carousel">
+                    <ng-container *ngFor="let screenshot of game.screenshots">
+                        <div *tuiItem class="screen-wrapper">
+                            <img class="game-screenshot" src="{{ screenshot.image }}" alt="screenshot" />
+                        </div>
+                    </ng-container>
+                </tui-carousel>
+                <button tuiIconButton icon="tuiIconChevronRightLarge" title="Next" (click)="carousel.next()"></button>
+            </div>
+        </div>
+        <div class="tabs__item" *ngIf="getTabIsOpened('Trailers')">
+            <div class="empty-placeholder" *ngIf="!game.trailers?.length">
+                No data available
+            </div>
+            <div *ngIf="game.trailers?.length" tuiCarouselButtons class="wrapper">
+                <button tuiIconButton icon="tuiIconChevronLeftLarge" title="Previous"
+                    (click)="carousel.prev()"></button>
+                <tui-carousel #carousel class="carousel">
+                    <ng-container *ngFor="let trailer of game.trailers">
+                        <div *tuiItem class="screen-wrapper">
+                            <video
+                            class="game-screenshot"
+                            controls
+                        >
+                        <source src="{{ trailer.data?.max }}" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                        </div>
+                    </ng-container>
+                </tui-carousel>
+                <button tuiIconButton icon="tuiIconChevronRightLarge" title="Next" (click)="carousel.next()"></button>
+            </div>
+        </div>
+    </div>
+</div>

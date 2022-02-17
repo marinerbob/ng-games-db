@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     let searchTerm = this.searchForm.controls['search'].value;
-    this.router.navigate(['home'], { queryParams: { search: searchTerm } })
+    this.router.navigate(['home'], { queryParams: { search: searchTerm }, queryParamsHandling: 'merge' })
   }
 
 }

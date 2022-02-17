@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,8 @@ const SORT_TYPES: { [label: string]: string } = {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit, OnDestroy {
   readonly selectSortItems = Object.keys(SORT_TYPES);
@@ -38,13 +39,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (params['search']) {
         this.search = params['search'];
-        this.searchGames('metacrit', this.search);
-      } else {
-        this.search = '';
-        this.searchGames('metacrit');
-      }
+        this.sort = params['sort'];
+
+        this.searchGames(SORT_TYPES[this.sort], this.search);
     })
   }
 
@@ -55,6 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onSortingChange(sort: string): void {
     this.searchGames(SORT_TYPES[sort], this.search);
+    this.router.navigate(['home'], { queryParams: { sort: sort }, queryParamsHandling: 'merge' })
   }
 
   searchGames(sort: string, search?: string): void {

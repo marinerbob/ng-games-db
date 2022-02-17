@@ -1,14 +1,26 @@
-<section *ngIf="game" class="details-wrapper details">
-    <div class="details__desc description">
-        <h1 class="tui-text_h1 description__title">{{ game.name }}</h1>
-    
-    <h4 class="tui-text_h4 description__released">Release: {{ game.released | date }} <a *ngIf="game.metacritic" href="{{ game.metacritic_url }}" target="_blank" class="description__metacritic" [appMetacriticScore]="game.metacritic" >{{ game.metacritic }}</a> </h4>
-    <p class="description__genres">
-        <span class="tui-text_body-xl" *ngFor="let genre of game.genres; let last = last">
-            {{ genre.name }}<span *ngIf="!last">, </span>
-        </span>
-    </p>
-    </div>
-    <app-game-tabs [game]="game"></app-game-tabs>
-    <div *ngIf="game.background_image" [appBgImage]="game.background_image" class="details-wrapper__banner"></div>
-</section>
+<ng-container *ngIf="game">
+    <section class="details-wrapper details">
+        <div class="details__desc description">
+            <h1 class="tui-text_h1 description__title">{{ game.name }}</h1>
+
+            <h4 class="tui-text_h4 description__released">Release: {{ game.released | date }} <a *ngIf="game.metacritic"
+                    href="{{ game.metacritic_url }}" target="_blank" class="description__metacritic"
+                    [appMetacriticScore]="game.metacritic">{{ game.metacritic }}</a> </h4>
+            <p *ngIf="game.genres?.length" class="description__genres">
+                <span class="tui-text_body-xl" *ngFor="let genre of game.genres; let last = last">
+                    {{ genre.name }}<span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <div *ngIf="game.parent_platforms?.length" class="description__platforms">
+                <img *ngFor="let gamePlatform of game.parent_platforms"
+                    src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                    alt="{{ gamePlatform.platform.slug }}" class="description__platform">
+            </div>
+        </div>
+
+        <div *ngIf="game.background_image" [appBgImage]="game.background_image" class="details-wrapper__banner"></div>
+    </section>
+    <section class="tui-text_body-xl">
+        <app-game-tabs [game]="game"></app-game-tabs>
+    </section>
+</ng-container>

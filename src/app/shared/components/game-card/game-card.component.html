@@ -1,0 +1,15 @@
+<a tuiIsland (click)="onLinkClick(game.id)" [ngClass]="'game-card ' + additionalClasses" size="l" [hoverable]="true">
+    <div *ngIf="game.metacritic" [appMetacriticScore]="game.metacritic" class="game-card__meta-rating">
+        {{ game.metacritic }}
+    </div>
+    <div class="game-card__desc">
+        <h3 class="tui-text_h4">{{ game.name }}</h3>
+        <div class="game-card__platforms">
+            <img *ngFor="let gamePlatform of game.parent_platforms"
+                src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                alt="{{ gamePlatform.platform.slug }}" class="game-card__platform">
+        </div>
+    </div>
+    <div *ngIf="game.background_image" [appBgImage]="game.background_image" class="game-card__banner">
+    </div>
+</a>

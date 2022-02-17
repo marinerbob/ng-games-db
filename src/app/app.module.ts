@@ -10,10 +10,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from "./components/home/home.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     PageNotFoundComponent
   ],
   imports: [

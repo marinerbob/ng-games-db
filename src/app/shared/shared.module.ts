@@ -4,19 +4,24 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TuiRootModule, TuiTextfieldControllerModule, TuiButtonModule, TuiDataListModule } from '@taiga-ui/core';
-import { TuiInputModule, TuiIslandModule, TuiSelectModule, TuiDataListWrapperModule } from '@taiga-ui/kit';
+import { TuiInputModule, TuiIslandModule, TuiSelectModule, TuiDataListWrapperModule, TuiTabsModule, TuiCarouselModule } from '@taiga-ui/kit';
 
 import { Title } from '@angular/platform-browser';
 
 import { HeaderComponent } from './components/header/header.component';
 import { BgImageDirective } from './directives/bg-image.directive';
 import { MetacriticScoreDirective } from './directives/metacritic-score.directive';
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
     HeaderComponent,
     BgImageDirective,
-    MetacriticScoreDirective
+    MetacriticScoreDirective,
+    GameCardComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +29,8 @@ import { MetacriticScoreDirective } from './directives/metacritic-score.directiv
     FormsModule,
     ReactiveFormsModule,
     TuiRootModule,
+    TuiCarouselModule,
+    TuiTabsModule,
     TuiIslandModule,
     TuiDataListModule,
     TuiDataListWrapperModule,
@@ -37,6 +44,8 @@ import { MetacriticScoreDirective } from './directives/metacritic-score.directiv
   ],
   exports: [
     HeaderComponent,
+    GameCardComponent,
+    CarouselComponent,
     BgImageDirective,
     MetacriticScoreDirective,
     CommonModule,
@@ -44,6 +53,8 @@ import { MetacriticScoreDirective } from './directives/metacritic-score.directiv
     FormsModule,
     ReactiveFormsModule,
     TuiRootModule,
+    TuiCarouselModule,
+    TuiTabsModule,
     TuiIslandModule,
     TuiButtonModule,
     TuiDataListModule,
