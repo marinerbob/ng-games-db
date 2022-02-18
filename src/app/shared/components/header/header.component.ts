@@ -20,9 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.routeSub = this.activatedRoute.queryParams.subscribe((params: Params) => {
-            if (params['search']) {
-                this.searchForm.setValue({ search: params['search'] });
-            }
+            this.searchForm.setValue({ search: params['search'] ?? '' });
         });
     }
 

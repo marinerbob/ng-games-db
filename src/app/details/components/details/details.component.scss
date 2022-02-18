@@ -2,13 +2,12 @@
 
 .details-wrapper {
     width: 100%;
-    margin-top: 5rem;
-    height: calc(100vh - 5rem);
     position: relative;
     color: #fff;
     display: flex;
     align-items: flex-end;
 
+    @include make-full-height-container(5rem);
     @include make-banner('banner', #000, 0.8);
 }
 

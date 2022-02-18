@@ -23,3 +23,8 @@
         background-position: center;
     }
 }
+
+@mixin make-full-height-container ($header-height) {
+    margin-top: $header-height;
+    height: calc(100vh - $header-height);
+}

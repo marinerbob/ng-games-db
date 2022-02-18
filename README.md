@@ -1,27 +1,42 @@
-# NgGameDb
+# Games DB App (v1.0)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+Клиентская часть для минимальной выборки из открытого API [rawg.io](https://rawg.io/)
 
-## Development server
+![home_page](./github_assets/homeScreen.png)
+![details_page](./github_assets/detailsScreen.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ремарка: Функционал достаточно скуден, в рамках этого проекта уделил больше времени на "прощупывание" фреймворка
 
-## Code scaffolding
+## Разработка
+Стек:
+- Framework: Angular v13
+- UI-kit: TaigaUI
+- CSS-preprocessor: SASS
+- Pre-commit hooks: via Husky
+- Linters pack: eslint + prettier + lint-staged
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Маршруты
 
-## Build
+- `/ | /home` - домашняя страница с выборкой данных
+  - Query params:
+    - `search` - параметр поиска 
+    - `sort` - параметр поиска (одно из значений SORT_TYPES в core/constants)
+- `/details`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Что далее
+### В данный момент допиливается:
+- [ ] unit-тесты
+  - [ ] services тесты
+  - [ ] components тесты
+  - [ ] helpers/directive тесты
+- [ ] причесываются index.ts файлы и код в целом
+- [ ] делаются попытки прикрутить карусель с ng-content
+- [ ] loading и error state для запросов
+  
+### Что планируется
+- Запилить на основе этой "болванки" подобие интернет-магазина (с пользователями, корзиной, доп-фильтрами и пагинацией к API-выборке помимо сортировки и поиска)
+- Для предыдущего пункта сделать нодовый мини-бэк на express/nest + postgre для раздачи информации о пользователях, состоянии аутентификации, корзине и покупках.
+- Интегрировать ngrx
+- Реализовать кэширование запросов (скорее всего через интерцептор)
+- Попробовать в angular universal (???)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -25,6 +25,7 @@ import { BgImageDirective } from './directives/bg-image.directive';
 import { MetacriticScoreDirective } from './directives/metacritic-score.directive';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
         MetacriticScoreDirective,
         GameCardComponent,
         CarouselComponent,
+        PageNotFoundComponent,
     ],
     imports: [
         CommonModule,
@@ -55,6 +57,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
         HeaderComponent,
         GameCardComponent,
         CarouselComponent,
+        PageNotFoundComponent,
         BgImageDirective,
         MetacriticScoreDirective,
         CommonModule,
