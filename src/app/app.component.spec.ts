@@ -15,6 +15,7 @@ describe('AppComponent', () => {
         const app = fixture.componentInstance;
         expect(app).toBeTruthy();
     });
+    // TODO
 
     // it(`should have as title 'ng-game-db'`, () => {
     //   const fixture = TestBed.createComponent(AppComponent);

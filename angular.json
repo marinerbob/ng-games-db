@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-game-db": {
+    "ng-games-db": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-game-db",
+            "outputPath": "dist/ng-games-db",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-game-db:build:production"
+              "browserTarget": "ng-games-db:build:production"
             },
             "development": {
-              "browserTarget": "ng-game-db:build:development"
+              "browserTarget": "ng-games-db:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-game-db:build"
+            "browserTarget": "ng-games-db:build"
           }
         },
         "test": {
@@ -131,7 +131,7 @@
       }
     }
   },
-  "defaultProject": "ng-game-db",
+  "defaultProject": "ng-games-db",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
