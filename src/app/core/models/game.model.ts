@@ -1,5 +1,7 @@
+export type GameId = number;
+
 export type Game = {
-    id: number;
+    id: GameId;
     name: string;
     background_image: string;
     released: string;
@@ -36,11 +38,11 @@ type Rating = {
     title: string;
 };
 
-type Screenshot = {
+export type Screenshot = {
     image: string;
 };
 
-type Trailer = {
+export type Trailer = {
     data: {
         max: string;
     };

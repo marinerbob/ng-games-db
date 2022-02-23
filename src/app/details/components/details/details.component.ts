@@ -1,9 +1,10 @@
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { Game, GameService } from 'src/app/core';
+import { Game, GameId } from 'src/app/core';
 
 import { Subscription } from 'rxjs';
+import { DetailsService } from '../../services/details.service';
 
 @Component({
     selector: 'app-details',
@@ -11,14 +12,13 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-    public gameRating: number = 0;
-    public gameId: string = '';
+    public gameId: GameId;
     public game: Game;
 
     private routeSub: Subscription;
     private gameSub: Subscription;
 
-    constructor(private activatedRoute: ActivatedRoute, private gameService: GameService) {}
+    constructor(private activatedRoute: ActivatedRoute, private detailsService: DetailsService) {}
 
     ngOnInit(): void {
         this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
@@ -32,27 +32,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
         this.routeSub && this.routeSub.unsubscribe();
     }
 
-    getGameDetails(id: string): void {
-        this.gameSub = this.gameService.getGameDetails(id).subscribe((res: Game) => {
+    getGameDetails(id: GameId): void {
+        this.gameSub = this.detailsService.getDetails(id).subscribe((res: Game) => {
             this.game = res;
-
-            console.log(this.game);
-            setTimeout(() => {
-                this.gameRating = this.game.metacritic;
-            }, 1000);
         });
-    }
-
-    getColor(value: number): string {
-        if (value > 75) {
-            return '#5ee432';
-        }
-        if (value > 50) {
-            return '#fffa50';
-        }
-        if (value > 30) {
-            return '#f7aa38';
-        }
-        return '#ef4655';
     }
 }

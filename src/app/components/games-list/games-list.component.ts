@@ -8,8 +8,9 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse, Game, GameService } from 'src/app/core';
+import { APIGameParams, APIResponse, Game } from 'src/app/core';
 import { SORT_TYPES } from 'src/app/core/constants/sort-types.constant';
+import { GamesService } from 'src/app/games/services/games.service';
 import { detectShallowInputChanged } from 'src/app/shared/helpers/changesDetection.helper';
 
 @Component({
@@ -27,7 +28,7 @@ export class GamesListComponent implements OnChanges, OnDestroy {
     private gameSub: Subscription;
     private routeSub: Subscription;
 
-    constructor(private gameService: GameService, private router: Router) {}
+    constructor(private gameService: GamesService, private router: Router) {}
 
     ngOnChanges(changes: SimpleChanges): void {
         let isSortChanged = detectShallowInputChanged(changes, 'sort');
@@ -48,8 +49,13 @@ export class GamesListComponent implements OnChanges, OnDestroy {
     }
 
     searchGames(sort: string, search?: string): void {
+        const params: APIGameParams = {
+            ordering: sort,
+            search,
+        };
+
         this.gameSub = this.gameService
-            .getGameList(sort, search)
+            .getGamesList(params)
             .subscribe((gameList: APIResponse<Game>) => {
                 this.games = gameList.results as Game[];
             });

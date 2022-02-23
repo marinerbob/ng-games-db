@@ -1,2 +1,2 @@
-export * from './apiResponse.model';
+export * from './api.model';
 export * from './game.model';

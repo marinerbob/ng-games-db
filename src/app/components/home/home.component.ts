@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { Game } from 'src/app/core';
+import { APIGameParams, Game } from 'src/app/core';
 import { SORT_TYPES } from 'src/app/core/constants/sort-types.constant';
 @Component({
     selector: 'app-home',
@@ -12,6 +12,7 @@ import { SORT_TYPES } from 'src/app/core/constants/sort-types.constant';
 export class HomeComponent implements OnInit, OnDestroy {
     readonly selectSortItems = Object.keys(SORT_TYPES);
 
+    public params: APIGameParams;
     public search: string;
     public sort: string;
     public games: Game[];
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.routeSub = this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.search = params['search'] ?? '';
             this.sort = SORT_TYPES[params['sort']] ? params['sort'] : 'Metacritic';
+            this.params = params;
         });
     }
 
