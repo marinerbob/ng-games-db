@@ -7,12 +7,20 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { GamesModule } from './games/games.module';
+
 import { HomeComponent } from './components/home/home.component';
-import { GamesListComponent } from './components/games-list/games-list.component';
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, GamesListComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, AppRoutingModule],
+    declarations: [AppComponent, HomeComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        CoreModule,
+        SharedModule,
+        GamesModule,
+        AppRoutingModule,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

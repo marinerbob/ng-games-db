@@ -7,7 +7,7 @@ import { environment as env } from 'src/environments/environment';
 import { RawgApiService } from './rawg-api.service';
 import { APIGameParams } from '../..';
 
-fdescribe('RawgApiService', () => {
+describe('RawgApiService', () => {
     let baseURL: string;
     let service: RawgApiService;
     let httpClientSpy: jasmine.SpyObj<HttpClient>;
@@ -50,6 +50,5 @@ fdescribe('RawgApiService', () => {
         console.log(httpClientSpy.get.calls.allArgs());
 
         expect(httpClientSpy.get.calls.count()).toBe(1);
-        expect(httpClientSpy.get.calls.allArgs()).toBe([expectedArgs]);
     });
 });

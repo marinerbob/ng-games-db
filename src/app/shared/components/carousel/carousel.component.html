@@ -1,8 +1,7 @@
 <div tuiCarouselButtons class="carousel-wrapper">
-    <button tuiIconButton icon="tuiIconChevronLeftLarge" title="Previous"
-        (click)="carousel.prev()"></button>
+    <button tuiIconButton icon="tuiIconChevronLeftLarge" title="Previous" (click)="carousel.prev()"></button>
     <tui-carousel #carousel class="carousel">
-        <ng-content></ng-content>
+        <ng-content select="[carousel-items]"></ng-content>
     </tui-carousel>
     <button tuiIconButton icon="tuiIconChevronRightLarge" title="Next" (click)="carousel.next()"></button>
 </div>
